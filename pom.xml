@@ -491,12 +491,12 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
 			<artifactId>pragmatickm-all-book</artifactId>
-			<version>1.2.4-SNAPSHOT</version>
+			<version>1.2.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
 			<artifactId>pragmatickm-contact-book</artifactId>
-			<version>1.4.4-SNAPSHOT</version>
+			<version>1.4.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
@@ -536,7 +536,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
 			<artifactId>pragmatickm-password-book</artifactId>
-			<version>1.4.4-SNAPSHOT</version>
+			<version>1.4.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
@@ -571,7 +571,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
 			<artifactId>pragmatickm-procedure-book</artifactId>
-			<version>1.4.4-SNAPSHOT</version>
+			<version>1.4.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
@@ -606,7 +606,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
 			<artifactId>pragmatickm-task-book</artifactId>
-			<version>1.4.4-SNAPSHOT</version>
+			<version>1.4.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId>

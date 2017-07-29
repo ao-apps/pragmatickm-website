@@ -22,7 +22,7 @@ The [pragmatickm.com](https://pragmatickm.com/) website.
 
 ## Project Links
 * [Project Home](https://pragmatickm.com/)
-* [Maven Repository](https://aorepo.org/maven2)
+* [Maven Repository](https://aorepo.org/maven2/)
 * [GitHub](https://github.com/aoindustries/pragmatickm-website)
 
 ## Contact Us

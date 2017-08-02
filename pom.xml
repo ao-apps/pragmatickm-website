@@ -64,7 +64,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 				<dependency>
 					<groupId>com.semanticcms</groupId>
 					<artifactId>semanticcms-openfile-all</artifactId>
-					<version>1.2.4-validation-SNAPSHOT</version>
+					<version>2.0.0-SNAPSHOT</version>
 					<type>pom</type>
 				</dependency>
 			</dependencies>
@@ -471,7 +471,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<dependency>
 			<groupId>com.semanticcms</groupId>
 			<artifactId>semanticcms-news-all</artifactId>
-			<version>1.1.4-validation-SNAPSHOT</version>
+			<version>2.0.0-SNAPSHOT</version>
 			<type>pom</type>
 		</dependency>
 		<dependency>
@@ -544,7 +544,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
 			<artifactId>pragmatickm-password-book</artifactId>
-			<version>1.4.5-validation-SNAPSHOT</version>
+			<version>2.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
@@ -579,7 +579,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
 			<artifactId>pragmatickm-procedure-book</artifactId>
-			<version>1.4.5-validation-SNAPSHOT</version>
+			<version>2.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
@@ -614,7 +614,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<dependency>
 			<groupId>com.pragmatickm</groupId>
 			<artifactId>pragmatickm-task-book</artifactId>
-			<version>1.4.5-validation-SNAPSHOT</version>
+			<version>2.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId>

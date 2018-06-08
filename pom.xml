@@ -253,7 +253,6 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 						<plugin>
 							<groupId>org.apache.tomcat.maven</groupId>
 							<artifactId>tomcat7-maven-plugin</artifactId>
-							<version>2.2</version>
 							<configuration>
 								<charset>UTF-8</charset>
 								<server>pragmatickm.com</server>

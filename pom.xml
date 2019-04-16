@@ -40,7 +40,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<!-- Unreliable with current hack: <maven.build.timestamp.format>yyyyMMdd.HHmmss</maven.build.timestamp.format> -->
 	</properties>
 
-	<name>PragmaticKM 1 Website</name>
+	<name>PragmaticKM Website</name>
 	<url>https://pragmatickm.com/</url>
 	<description>The pragmatickm.com website.</description>
 	<inceptionYear>2017</inceptionYear>

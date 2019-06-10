@@ -37,6 +37,9 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 	<book name="/contact/all" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/contact/all/book/src/main/resources-filtered/META-INF/resources/contact/all">
 		<parent book="/contact" page="/index.jspx" />
 	</book>
+	<book name="/contact/bom" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/contact/bom/book/src/main/resources-filtered/META-INF/resources/contact/bom">
+		<parent book="/contact" page="/index.jspx" />
+	</book>
 	<book name="/contact/model" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/contact/model/book/src/main/resources-filtered/META-INF/resources/contact/model">
 		<parent book="/contact" page="/index.jspx" />
 	</book>

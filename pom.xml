@@ -694,6 +694,9 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all-book</artifactId><version>2.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
+			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom-book</artifactId><version>2.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-book</artifactId><version>2.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -730,6 +733,9 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all-book</artifactId><version>2.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
+			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom-book</artifactId><version>2.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model-book</artifactId><version>2.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -754,6 +760,9 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all-book</artifactId><version>2.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
+			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom-book</artifactId><version>2.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model-book</artifactId><version>2.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
@@ -776,6 +785,9 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all-book</artifactId><version>2.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom-book</artifactId><version>2.0.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model-book</artifactId><version>2.0.0-SNAPSHOT</version>

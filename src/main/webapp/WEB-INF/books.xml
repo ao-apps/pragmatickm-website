@@ -31,6 +31,9 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 	<book name="/all" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/all/book/src/main/resources-filtered/META-INF/resources/all">
 		<parent book="/" page="/index.jspx" />
 	</book>
+	<book name="/bom" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/bom/book/src/main/resources-filtered/META-INF/resources/bom">
+		<parent book="/" page="/index.jspx" />
+	</book>
 	<book name="/contact" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/contact/book/src/main/resources-filtered/META-INF/resources/contact">
 		<parent book="/" page="/index.jspx" />
 	</book>
@@ -64,6 +67,9 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 	<book name="/password/all" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/password/all/book/src/main/resources-filtered/META-INF/resources/password/all">
 		<parent book="/password" page="/index.jspx" />
 	</book>
+	<book name="/password/bom" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/password/bom/book/src/main/resources-filtered/META-INF/resources/password/bom">
+		<parent book="/password" page="/index.jspx" />
+	</book>
 	<book name="/password/model" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/password/model/book/src/main/resources-filtered/META-INF/resources/password/model">
 		<parent book="/password" page="/index.jspx" />
 	</book>
@@ -85,6 +91,9 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 	<book name="/procedure/all" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/procedure/all/book/src/main/resources-filtered/META-INF/resources/procedure/all">
 		<parent book="/procedure" page="/index.jspx" />
 	</book>
+	<book name="/procedure/bom" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/procedure/bom/book/src/main/resources-filtered/META-INF/resources/procedure/bom">
+		<parent book="/procedure" page="/index.jspx" />
+	</book>
 	<book name="/procedure/model" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/procedure/model/book/src/main/resources-filtered/META-INF/resources/procedure/model">
 		<parent book="/procedure" page="/index.jspx" />
 	</book>
@@ -104,6 +113,9 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<parent book="/" page="/index.jspx" />
 	</book>
 	<book name="/task/all" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/task/all/book/src/main/resources-filtered/META-INF/resources/task/all">
+		<parent book="/task" page="/index.jspx" />
+	</book>
+	<book name="/task/bom" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/task/bom/book/src/main/resources-filtered/META-INF/resources/task/bom">
 		<parent book="/task" page="/index.jspx" />
 	</book>
 	<book name="/task/model" cvsworkDirectory="~/maven2/ao/pragmatickm-1.x/task/model/book/src/main/resources-filtered/META-INF/resources/task/model">

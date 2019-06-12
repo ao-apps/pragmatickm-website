@@ -391,7 +391,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			<!-- Direct -->
 			<!-- Note: All non-bom transitive dependencies are listed - so only bom imports -->
 			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.6.3-SNAPSHOT</version>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.7.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>1.5.4-SNAPSHOT</version>

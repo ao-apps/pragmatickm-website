@@ -233,7 +233,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 								-->
 								<path>/</path>
 								<update>true</update>
-								<url>https://pragmatickm.com/2yAkwXtMPyZz04YbtyuA4V/text</url>
+								<url>${tomcat7-maven-plugin-pragmatickm.com}</url>
 							</configuration>
 						</plugin>
 					</plugins>

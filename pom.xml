@@ -590,7 +590,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-book</artifactId><version>1.5.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all-book</artifactId><version>1.3.1-SNAPSHOT</version>
+			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all-book</artifactId><version>1.3.1-POST-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom-book</artifactId><version>1.3.1-SNAPSHOT</version>

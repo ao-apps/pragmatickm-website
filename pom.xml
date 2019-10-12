@@ -602,7 +602,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all-book</artifactId><version>1.4.0-POST-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom-book</artifactId><version>1.4.0-SNAPSHOT</version>
+			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom-book</artifactId><version>1.4.0-POST-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model-book</artifactId><version>1.4.0-POST-SNAPSHOT</version>

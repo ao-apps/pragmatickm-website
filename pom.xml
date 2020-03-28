@@ -54,6 +54,11 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<tag>HEAD</tag>
 	</scm>
 
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/aoindustries/pragmatickm-website/issues</url>
+	</issueManagement>
+
 	<build>
 		<plugins>
 			<plugin>

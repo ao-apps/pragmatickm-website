@@ -516,7 +516,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		</dependency>
 		<!-- Books -->
 		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-book</artifactId><version>1.10.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-book</artifactId><version>1.10.0${POST-SNAPSHOT}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all-book</artifactId><version>1.5.0${POST-SNAPSHOT}</version>

@@ -259,7 +259,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			<dependencies>
 				<!-- Dependencies for javadocs -->
 				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId><version>1.5.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId><version>1.5.0${POST-SNAPSHOT}</version>
 					<classifier>javadoc</classifier>
 					<scope>provided</scope>
 				</dependency>
@@ -534,7 +534,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom-book</artifactId><version>1.4.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 		</dependency>
 		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model-book</artifactId><version>1.5.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model-book</artifactId><version>1.5.0${POST-SNAPSHOT}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-servlet-book</artifactId><version>1.5.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>

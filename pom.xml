@@ -581,7 +581,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent-book</artifactId><version>1.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent-book</artifactId><version>1.6.0${POST-SNAPSHOT}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>

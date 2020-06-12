@@ -417,6 +417,9 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-mime-mappings</artifactId><version>1.0.0${POST-SNAPSHOT}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-filter</artifactId><version>2.2.0${POST-SNAPSHOT}</version>
+			</dependency>
 			<!-- javaee-web-api-bom: <groupId>javax.servlet</groupId><artifactId>jstl</artifactId> -->
 			<!-- javaee-web-api-bom: <groupId>org.glassfish.web</groupId><artifactId>jstl-impl</artifactId> -->
 			<dependency>
@@ -461,9 +464,6 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-net-types</artifactId><version>1.2.1${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-filter</artifactId><version>2.2.0${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.aoindustries</groupId><artifactId>ao-servlet-firewall-api</artifactId><version>1.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
@@ -561,6 +561,10 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<dependency>
 			<!-- Required for UTF-8 static resources -->
 			<groupId>com.aoindustries</groupId><artifactId>ao-mime-mappings</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.aoindustries</groupId><artifactId>ao-servlet-filter</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>

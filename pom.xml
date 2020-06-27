@@ -259,7 +259,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 						<groupId>org.apache.tomcat.maven</groupId><artifactId>tomcat7-maven-plugin</artifactId>
 						<configuration>
 							<charset>UTF-8</charset>
-							<server>pragmatickm.com</server>
+							<server>tomcat7-maven-plugin-pragmatickm.com</server>
 							<!- - Parallel deployment - ->
 							<!- - Unreliable with current hack:
 							<path>/ROOT##${maven.build.timestamp}-${project.version}</path>

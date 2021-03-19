@@ -345,7 +345,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet</artifactId><version>1.7.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version><classifier>javadoc</classifier>
+					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet</artifactId><version>1.7.1${POST-SNAPSHOT}</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -548,7 +548,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model-book</artifactId><version>1.4.1${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet-book</artifactId><version>1.7.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet-book</artifactId><version>1.7.1${POST-SNAPSHOT}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-style-book</artifactId><version>1.4.0${POST-SNAPSHOT}</version>

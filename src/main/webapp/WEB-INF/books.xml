@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 pragmatickm-website - The pragmatickm.com website.
-Copyright (C) 2017, 2019, 2020  AO Industries, Inc.
+Copyright (C) 2017, 2019, 2020, 2021  AO Industries, Inc.
     support@aoindustries.com
     7262 Bull Pen Cir
     Mobile, AL 36695
@@ -29,120 +29,120 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 >
 	<book name="/" cvsworkDirectory="~/maven2/ao/pragmatickm/book/src/main/resources-filtered/META-INF/resources" />
 	<book name="/all" cvsworkDirectory="~/maven2/ao/pragmatickm/all/book/src/main/resources-filtered/META-INF/resources/all">
-		<parent book="/" page="/index.jspx" />
+		<parent book="/" page="/index.jspx" shortTitle="All" />
 	</book>
 	<book name="/bom" cvsworkDirectory="~/maven2/ao/pragmatickm/bom/book/src/main/resources-filtered/META-INF/resources/bom">
-		<parent book="/" page="/index.jspx" />
+		<parent book="/" page="/index.jspx" shortTitle="BOM" />
 	</book>
 	<book name="/contact" cvsworkDirectory="~/maven2/ao/pragmatickm/contact/book/src/main/resources-filtered/META-INF/resources/contact">
-		<parent book="/" page="/index.jspx" />
+		<parent book="/" page="/index.jspx" shortTitle="Contact" />
 	</book>
 	<book name="/contact/all" cvsworkDirectory="~/maven2/ao/pragmatickm/contact/all/book/src/main/resources-filtered/META-INF/resources/contact/all">
-		<parent book="/contact" page="/index.jspx" />
+		<parent book="/contact" page="/index.jspx" shortTitle="All" />
 	</book>
 	<book name="/contact/bom" cvsworkDirectory="~/maven2/ao/pragmatickm/contact/bom/book/src/main/resources-filtered/META-INF/resources/contact/bom">
-		<parent book="/contact" page="/index.jspx" />
+		<parent book="/contact" page="/index.jspx" shortTitle="BOM" />
 	</book>
 	<book name="/contact/model" cvsworkDirectory="~/maven2/ao/pragmatickm/contact/model/book/src/main/resources-filtered/META-INF/resources/contact/model">
-		<parent book="/contact" page="/index.jspx" />
+		<parent book="/contact" page="/index.jspx" shortTitle="Model" />
 	</book>
 	<book name="/contact/renderer/html" cvsworkDirectory="~/maven2/ao/pragmatickm/contact/renderer-html/book/src/main/resources-filtered/META-INF/resources/contact/renderer/html">
-		<parent book="/contact" page="/index.jspx" />
+		<parent book="/contact" page="/index.jspx" shortTitle="Renderer HTML" />
 	</book>
 	<book name="/contact/servlet" cvsworkDirectory="~/maven2/ao/pragmatickm/contact/servlet/book/src/main/resources-filtered/META-INF/resources/contact/servlet">
-		<parent book="/contact" page="/index.jspx" />
+		<parent book="/contact" page="/index.jspx" shortTitle="Servlet" />
 	</book>
 	<book name="/contact/style" cvsworkDirectory="~/maven2/ao/pragmatickm/contact/style/book/src/main/resources-filtered/META-INF/resources/contact/style">
-		<parent book="/contact" page="/index.jspx" />
+		<parent book="/contact" page="/index.jspx" shortTitle="Style" />
 	</book>
 	<book name="/contact/taglib" cvsworkDirectory="~/maven2/ao/pragmatickm/contact/taglib/book/src/main/resources-filtered/META-INF/resources/contact/taglib">
-		<parent book="/contact" page="/index.jspx" />
+		<parent book="/contact" page="/index.jspx" shortTitle="Taglib" />
 	</book>
 	<book name="/contact/view" cvsworkDirectory="~/maven2/ao/pragmatickm/contact/view/book/src/main/resources-filtered/META-INF/resources/contact/view">
-		<parent book="/contact" page="/index.jspx" />
+		<parent book="/contact" page="/index.jspx" shortTitle="View" />
 	</book>
 	<book name="/parent" cvsworkDirectory="~/maven2/ao/pragmatickm/parent/book/src/main/resources-filtered/META-INF/resources/parent">
-		<parent book="/" page="/index.jspx" />
+		<parent book="/" page="/index.jspx" shortTitle="Parent" />
 	</book>
 	<book name="/password" cvsworkDirectory="~/maven2/ao/pragmatickm/password/book/src/main/resources-filtered/META-INF/resources/password">
-		<parent book="/" page="/index.jspx" />
+		<parent book="/" page="/index.jspx" shortTitle="Password" />
 	</book>
 	<book name="/password/all" cvsworkDirectory="~/maven2/ao/pragmatickm/password/all/book/src/main/resources-filtered/META-INF/resources/password/all">
-		<parent book="/password" page="/index.jspx" />
+		<parent book="/password" page="/index.jspx" shortTitle="All" />
 	</book>
 	<book name="/password/bom" cvsworkDirectory="~/maven2/ao/pragmatickm/password/bom/book/src/main/resources-filtered/META-INF/resources/password/bom">
-		<parent book="/password" page="/index.jspx" />
+		<parent book="/password" page="/index.jspx" shortTitle="BOM" />
 	</book>
 	<book name="/password/model" cvsworkDirectory="~/maven2/ao/pragmatickm/password/model/book/src/main/resources-filtered/META-INF/resources/password/model">
-		<parent book="/password" page="/index.jspx" />
+		<parent book="/password" page="/index.jspx" shortTitle="Model" />
 	</book>
 	<book name="/password/renderer/html" cvsworkDirectory="~/maven2/ao/pragmatickm/password/renderer-html/book/src/main/resources-filtered/META-INF/resources/password/renderer/html">
-		<parent book="/password" page="/index.jspx" />
+		<parent book="/password" page="/index.jspx" shortTitle="Renderer HTML" />
 	</book>
 	<book name="/password/servlet" cvsworkDirectory="~/maven2/ao/pragmatickm/password/servlet/book/src/main/resources-filtered/META-INF/resources/password/servlet">
-		<parent book="/password" page="/index.jspx" />
+		<parent book="/password" page="/index.jspx" shortTitle="Servlet" />
 	</book>
 	<book name="/password/style" cvsworkDirectory="~/maven2/ao/pragmatickm/password/style/book/src/main/resources-filtered/META-INF/resources/password/style">
-		<parent book="/password" page="/index.jspx" />
+		<parent book="/password" page="/index.jspx" shortTitle="Style" />
 	</book>
 	<book name="/password/taglib" cvsworkDirectory="~/maven2/ao/pragmatickm/password/taglib/book/src/main/resources-filtered/META-INF/resources/password/taglib">
-		<parent book="/password" page="/index.jspx" />
+		<parent book="/password" page="/index.jspx" shortTitle="Taglib" />
 	</book>
 	<book name="/password/view" cvsworkDirectory="~/maven2/ao/pragmatickm/password/view/book/src/main/resources-filtered/META-INF/resources/password/view">
-		<parent book="/password" page="/index.jspx" />
+		<parent book="/password" page="/index.jspx" shortTitle="View" />
 	</book>
 	<book name="/procedure" cvsworkDirectory="~/maven2/ao/pragmatickm/procedure/book/src/main/resources-filtered/META-INF/resources/procedure">
-		<parent book="/" page="/index.jspx" />
+		<parent book="/" page="/index.jspx" shortTitle="Procedure" />
 	</book>
 	<book name="/procedure/all" cvsworkDirectory="~/maven2/ao/pragmatickm/procedure/all/book/src/main/resources-filtered/META-INF/resources/procedure/all">
-		<parent book="/procedure" page="/index.jspx" />
+		<parent book="/procedure" page="/index.jspx" shortTitle="All" />
 	</book>
 	<book name="/procedure/bom" cvsworkDirectory="~/maven2/ao/pragmatickm/procedure/bom/book/src/main/resources-filtered/META-INF/resources/procedure/bom">
-		<parent book="/procedure" page="/index.jspx" />
+		<parent book="/procedure" page="/index.jspx" shortTitle="BOM" />
 	</book>
 	<book name="/procedure/model" cvsworkDirectory="~/maven2/ao/pragmatickm/procedure/model/book/src/main/resources-filtered/META-INF/resources/procedure/model">
-		<parent book="/procedure" page="/index.jspx" />
+		<parent book="/procedure" page="/index.jspx" shortTitle="Model" />
 	</book>
 	<book name="/procedure/renderer/html" cvsworkDirectory="~/maven2/ao/pragmatickm/procedure/renderer-html/book/src/main/resources-filtered/META-INF/resources/procedure/renderer/html">
-		<parent book="/procedure" page="/index.jspx" />
+		<parent book="/procedure" page="/index.jspx" shortTitle="Renderer HTML" />
 	</book>
 	<book name="/procedure/servlet" cvsworkDirectory="~/maven2/ao/pragmatickm/procedure/servlet/book/src/main/resources-filtered/META-INF/resources/procedure/servlet">
-		<parent book="/procedure" page="/index.jspx" />
+		<parent book="/procedure" page="/index.jspx" shortTitle="Servlet" />
 	</book>
 	<book name="/procedure/style" cvsworkDirectory="~/maven2/ao/pragmatickm/procedure/style/book/src/main/resources-filtered/META-INF/resources/procedure/style">
-		<parent book="/procedure" page="/index.jspx" />
+		<parent book="/procedure" page="/index.jspx" shortTitle="Style" />
 	</book>
 	<book name="/procedure/taglib" cvsworkDirectory="~/maven2/ao/pragmatickm/procedure/taglib/book/src/main/resources-filtered/META-INF/resources/procedure/taglib">
-		<parent book="/procedure" page="/index.jspx" />
+		<parent book="/procedure" page="/index.jspx" shortTitle="Taglib" />
 	</book>
 	<book name="/procedure/view" cvsworkDirectory="~/maven2/ao/pragmatickm/procedure/view/book/src/main/resources-filtered/META-INF/resources/procedure/view">
-		<parent book="/procedure" page="/index.jspx" />
+		<parent book="/procedure" page="/index.jspx" shortTitle="View" />
 	</book>
 	<book name="/task" cvsworkDirectory="~/maven2/ao/pragmatickm/task/book/src/main/resources-filtered/META-INF/resources/task">
-		<parent book="/" page="/index.jspx" />
+		<parent book="/" page="/index.jspx" shortTitle="Task" />
 	</book>
 	<book name="/task/all" cvsworkDirectory="~/maven2/ao/pragmatickm/task/all/book/src/main/resources-filtered/META-INF/resources/task/all">
-		<parent book="/task" page="/index.jspx" />
+		<parent book="/task" page="/index.jspx" shortTitle="All" />
 	</book>
 	<book name="/task/bom" cvsworkDirectory="~/maven2/ao/pragmatickm/task/bom/book/src/main/resources-filtered/META-INF/resources/task/bom">
-		<parent book="/task" page="/index.jspx" />
+		<parent book="/task" page="/index.jspx" shortTitle="BOM" />
 	</book>
 	<book name="/task/model" cvsworkDirectory="~/maven2/ao/pragmatickm/task/model/book/src/main/resources-filtered/META-INF/resources/task/model">
-		<parent book="/task" page="/index.jspx" />
+		<parent book="/task" page="/index.jspx" shortTitle="Model" />
 	</book>
 	<book name="/task/renderer/html" cvsworkDirectory="~/maven2/ao/pragmatickm/task/renderer-html/book/src/main/resources-filtered/META-INF/resources/task/renderer/html">
-		<parent book="/task" page="/index.jspx" />
+		<parent book="/task" page="/index.jspx" shortTitle="Renderer HTML" />
 	</book>
 	<book name="/task/servlet" cvsworkDirectory="~/maven2/ao/pragmatickm/task/servlet/book/src/main/resources-filtered/META-INF/resources/task/servlet">
-		<parent book="/task" page="/index.jspx" />
+		<parent book="/task" page="/index.jspx" shortTitle="Servlet" />
 	</book>
 	<book name="/task/style" cvsworkDirectory="~/maven2/ao/pragmatickm/task/style/book/src/main/resources-filtered/META-INF/resources/task/style">
-		<parent book="/task" page="/index.jspx" />
+		<parent book="/task" page="/index.jspx" shortTitle="Style" />
 	</book>
 	<book name="/task/taglib" cvsworkDirectory="~/maven2/ao/pragmatickm/task/taglib/book/src/main/resources-filtered/META-INF/resources/task/taglib">
-		<parent book="/task" page="/index.jspx" />
+		<parent book="/task" page="/index.jspx" shortTitle="Taglib" />
 	</book>
 	<book name="/task/view" cvsworkDirectory="~/maven2/ao/pragmatickm/task/view/book/src/main/resources-filtered/META-INF/resources/task/view">
-		<parent book="/task" page="/index.jspx" />
+		<parent book="/task" page="/index.jspx" shortTitle="View" />
 	</book>
 </books>

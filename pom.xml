@@ -33,6 +33,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 	<packaging>war</packaging>
 
 	<properties>
+		<module.name>com.pragmatickm.website</module.name>
 		<google.analytics.trackingId>UA-86871646-7</google.analytics.trackingId>
 		<!-- Parallel deployment -->
 		<!-- Unreliable with current hack: <maven.build.timestamp.format>yyyyMMdd.HHmmss</maven.build.timestamp.format> -->
@@ -101,20 +102,24 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 				<configuration>
 					<ignoreNonCompile>true</ignoreNonCompile>
 					<usedDependencies>
-						<!-- Non-classpath Direct -->
-						<dependency>com.semanticcms:semanticcms-core-all</dependency>
-						<dependency>com.semanticcms:semanticcms-news-all</dependency>
-						<dependency>com.semanticcms:semanticcms-section-all</dependency>
+						<!-- Direct -->
+						<dependency>com.semanticcms:semanticcms-core-all</dependency><!-- Required for module-info.java -->
+						<dependency>com.semanticcms:semanticcms-news-all</dependency><!-- Required for module-info.java -->
+						<dependency>com.semanticcms:semanticcms-section-all</dependency><!-- Required for module-info.java -->
 					</usedDependencies>
 					<ignoredUnusedDeclaredDependencies>
 						<!-- Books -->
 						<dependency>com.pragmatickm:*-book:jar</dependency>
 					</ignoredUnusedDeclaredDependencies>
+					<ignoredDependencies>
+						<!-- No "module-info.java" in some release builds -->
+						<dependency>com.aoapps:ao-fluent-html-any</dependency>
+					</ignoredDependencies>
 				</configuration>
 			</plugin>
 			<plugin>
 				<!--
-					Workaround "versions:display-plugin-updates" failing when "release" profile active.
+					Workaround "versions:display-plugin-updates" failing when "publish" profile active.
 					See https://github.com/mojohaus/versions-maven-plugin/issues/354
 
 					A recent optimization moved all configuration of the maven-war-plugin to
@@ -180,7 +185,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			<dependencies>
 				<dependency>
 					<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-all</artifactId><version>1.6.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-					<type>pom</type>
+					<scope>runtime</scope>
 				</dependency>
 				<dependency>
 					<groupId>com.semanticcms</groupId><artifactId>semanticcms-view-all</artifactId><version>1.8.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
@@ -196,10 +201,36 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 				</dependency>
 			</dependencies>
 		</profile>
+		<!--
+			Required for bug "requireActiveProfile ignores inherited profiles in submodules":
+			https://issues.apache.org/jira/browse/MENFORCER-226
+		-->
 		<profile>
-			<id>release</id>
+			<id>POST-SNAPSHOT</id>
+			<properties>
+				<POST-SNAPSHOT>-POST-SNAPSHOT</POST-SNAPSHOT>
+			</properties>
+		</profile>
+		<profile>
+			<id>publish</id>
 			<build>
 				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-enforcer-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>publish-enforce-profiles</id><goals><goal>enforce</goal></goals>
+								<configuration>
+									<rules>
+										<requireActiveProfile>
+											<message>"publish" requires "POST-SNAPSHOT" profile</message>
+											<profiles>POST-SNAPSHOT</profiles>
+										</requireActiveProfile>
+									</rules>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-war-plugin</artifactId>
 						<configuration>
@@ -307,9 +338,44 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 							</overlays>
 						</configuration>
 					</plugin>
+					<plugin>
+						<groupId>org.apache.tomcat.maven</groupId><artifactId>tomcat7-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>publish</id><phase>deploy</phase><goals><goal>deploy-only</goal></goals>
+								<configuration>
+									<charset>UTF-8</charset>
+									<server>tomcat7-maven-plugin-pragmatickm.com</server>
+									<!-- Parallel deployment -->
+									<!-- Unreliable with current hack:
+									<path>/ROOT##${maven.build.timestamp}-${project.version}</path>
+									-->
+									<path>/</path>
+									<update>true</update>
+									<url>${tomcat7-maven-plugin-pragmatickm.com}</url>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>warmup-get-url</id><phase>deploy</phase><goals><goal>run</goal></goals>
+								<configuration>
+									<target>
+										<sleep seconds="10" />
+										<mkdir dir="${project.build.directory}/warmup-get-url" />
+										<get src="${publish-pragmatickm.com-warmup-get-url}" dest="${project.build.directory}/warmup-get-url/response" maxtime="120" httpusecaches="false" />
+										<get src="${publish-pragmatickm.com-warmup-get-url.2}" dest="${project.build.directory}/warmup-get-url/response.2" maxtime="120" httpusecaches="false" />
+										<get src="${publish-pragmatickm.com-warmup-get-url.3}" dest="${project.build.directory}/warmup-get-url/response.3" maxtime="120" httpusecaches="false" />
+									</target>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
 				</plugins>
 			</build>
-
 			<dependencies>
 				<!-- Dependencies for javadocs -->
 				<dependency>
@@ -413,79 +479,6 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 			</dependencies>
-		</profile>
-		<!--
-			Required for bug "requireActiveProfile ignores inherited profiles in submoduless":
-			https://issues.apache.org/jira/browse/MENFORCER-226
-		-->
-		<profile>
-			<id>POST-SNAPSHOT</id>
-			<properties>
-				<POST-SNAPSHOT>-POST-SNAPSHOT</POST-SNAPSHOT>
-			</properties>
-		</profile>
-		<profile>
-			<id>publish</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-enforcer-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>publish-enforce-profiles</id><goals><goal>enforce</goal></goals>
-								<configuration>
-									<rules>
-										<requireActiveProfile>
-											<message>"publish" requires "release" profile</message>
-											<profiles>release</profiles>
-										</requireActiveProfile>
-										<requireActiveProfile>
-											<message>"publish" requires "POST-SNAPSHOT" profile</message>
-											<profiles>POST-SNAPSHOT</profiles>
-										</requireActiveProfile>
-									</rules>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.tomcat.maven</groupId><artifactId>tomcat7-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>publish</id><phase>deploy</phase><goals><goal>deploy-only</goal></goals>
-								<configuration>
-									<charset>UTF-8</charset>
-									<server>tomcat7-maven-plugin-pragmatickm.com</server>
-									<!-- Parallel deployment -->
-									<!-- Unreliable with current hack:
-									<path>/ROOT##${maven.build.timestamp}-${project.version}</path>
-									-->
-									<path>/</path>
-									<update>true</update>
-									<url>${tomcat7-maven-plugin-pragmatickm.com}</url>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>warmup-get-url</id><phase>deploy</phase><goals><goal>run</goal></goals>
-								<configuration>
-									<target>
-										<sleep seconds="10" />
-										<mkdir dir="${project.build.directory}/warmup-get-url" />
-										<get src="${publish-pragmatickm.com-warmup-get-url}" dest="${project.build.directory}/warmup-get-url/response" maxtime="120" httpusecaches="false" />
-										<get src="${publish-pragmatickm.com-warmup-get-url.2}" dest="${project.build.directory}/warmup-get-url/response.2" maxtime="120" httpusecaches="false" />
-										<get src="${publish-pragmatickm.com-warmup-get-url.3}" dest="${project.build.directory}/warmup-get-url/response.3" maxtime="120" httpusecaches="false" />
-									</target>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 	</profiles>
 
@@ -599,6 +592,15 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 			</dependency>
 			<dependency>
 				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-view-book</artifactId><version>1.6.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>1.9.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId><version>1.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+			</dependency>
+			<dependency>
+				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId><version>1.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<!-- Transitive -->
 			<dependency>
@@ -806,19 +808,6 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>1.9.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
 			</dependency>
 			<!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId> -->
-			<!-- Non-classpath Direct -->
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>1.9.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-				<type>pom</type>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId><version>1.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-				<type>pom</type>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId><version>1.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-				<type>pom</type>
-			</dependency>
 			<!-- BOM -->
 			<dependency>
 				<groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom</artifactId><version>7.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
@@ -938,6 +927,15 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<dependency>
 			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-view-book</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId>
+		</dependency>
 		<!-- Runtime Direct -->
 		<dependency>
 			<!-- Required for UTF-8 static resources -->
@@ -955,19 +953,6 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<dependency>
 			<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId>
 			<scope>runtime</scope>
-		</dependency>
-		<!-- Non-classpath Direct -->
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId>
-			<type>pom</type>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId>
-			<type>pom</type>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId>
-			<type>pom</type>
 		</dependency>
 	</dependencies>
 </project>

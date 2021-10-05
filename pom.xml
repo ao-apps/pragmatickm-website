@@ -38,7 +38,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 		<!-- Unreliable with current hack: <maven.build.timestamp.format>yyyyMMdd.HHmmss</maven.build.timestamp.format> -->
 		<!-- SonarQube -->
 		<sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
-		<sonar.organization>aoindustries</sonar.organization>
+		<sonar.organization>ao-apps</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
@@ -71,20 +71,20 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 	</developers>
 
 	<scm>
-		<connection>scm:git:git://github.com/aoindustries/pragmatickm-website.git</connection>
-		<developerConnection>scm:git:git@github.com:aoindustries/pragmatickm-website.git</developerConnection>
-		<url>https://github.com/aoindustries/pragmatickm-website</url>
+		<connection>scm:git:git://github.com/ao-apps/pragmatickm-website.git</connection>
+		<developerConnection>scm:git:git@github.com:ao-apps/pragmatickm-website.git</developerConnection>
+		<url>https://github.com/ao-apps/pragmatickm-website</url>
 		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/aoindustries/pragmatickm-website/issues</url>
+		<url>https://github.com/ao-apps/pragmatickm-website/issues</url>
 	</issueManagement>
 
 	<ciManagement>
 		<system>GitHub Actions</system>
-		<url>https://github.com/aoindustries/pragmatickm-website/actions</url>
+		<url>https://github.com/ao-apps/pragmatickm-website/actions</url>
 	</ciManagement>
 
 	<repositories>

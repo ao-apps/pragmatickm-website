@@ -483,7 +483,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-book</artifactId><version>1.16.3-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all-book</artifactId><version>1.5.1-SNAPSHOT</version>
+				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all-book</artifactId><version>1.5.1-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom-book</artifactId><version>1.5.1-SNAPSHOT</version>

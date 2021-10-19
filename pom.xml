@@ -392,7 +392,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model</artifactId><version>1.5.1-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model</artifactId><version>1.5.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -519,7 +519,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-book</artifactId><version>1.8.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model-book</artifactId><version>1.5.1-SNAPSHOT</version>
+				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model-book</artifactId><version>1.5.1-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet-book</artifactId><version>1.8.0-POST-SNAPSHOT</version>

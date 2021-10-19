@@ -442,7 +442,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
 				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model</artifactId><version>1.6.2-SNAPSHOT</version><classifier>javadoc</classifier>
+					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model</artifactId><version>1.6.2-POST-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
@@ -567,7 +567,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-book</artifactId><version>1.9.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model-book</artifactId><version>1.6.2-SNAPSHOT</version>
+				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model-book</artifactId><version>1.6.2-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-servlet-book</artifactId><version>1.7.0-POST-SNAPSHOT</version>

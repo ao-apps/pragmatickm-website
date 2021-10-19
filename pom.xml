@@ -510,7 +510,7 @@ along with pragmatickm.  If not, see <http://www.gnu.org/licenses />.
 				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent-book</artifactId><version>1.11.3-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all-book</artifactId><version>1.6.1-SNAPSHOT</version>
+				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all-book</artifactId><version>1.6.1-POST-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom-book</artifactId><version>1.6.1-SNAPSHOT</version>

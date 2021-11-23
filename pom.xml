@@ -87,9 +87,15 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 	</issueManagement>
 
 	<ciManagement>
+		<system>Jenkins</system>
+		<url>https://jenkins.aoindustries.com/job/ao/job/pragmatickm/job/website/</url>
+	</ciManagement>
+	<!-- Only one allowed in POM:
+	<ciManagement>
 		<system>GitHub Actions</system>
 		<url>https://github.com/ao-apps/pragmatickm-website/actions</url>
 	</ciManagement>
+	-->
 
 	<repositories>
 		<!-- Repository required here, too, so can find parent -->
@@ -139,17 +145,12 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 				-->
 				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-war-plugin</artifactId>
 			</plugin>
-			<!-- Never attach sources for snapshot, see https://stackoverflow.com/a/39139979 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-source-plugin</artifactId>
-				<configuration><skipSource>${build.isSnapshot}</skipSource></configuration>
-			</plugin>
 			<!-- Never install snapshot, see https://stackoverflow.com/a/39139979 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-install-plugin</artifactId>
 				<configuration><skip>${build.isSnapshot}</skip></configuration>
 			</plugin>
-			<!-- Never deploy snapshot, see https://stackoverflow.com/a/39139979 -->
+			<!-- Do not deploy snapshot (unless "jenkins" profile below), see https://stackoverflow.com/a/39139979 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-deploy-plugin</artifactId>
 				<configuration><skip>${build.isSnapshot}</skip></configuration>
@@ -184,40 +185,32 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 				</dependency>
 			</dependencies>
 		</profile>
-		<!--
-			Required for bug "requireActiveProfile ignores inherited profiles in submodules":
-			https://issues.apache.org/jira/browse/MENFORCER-226
-		-->
 		<profile>
-			<id>POST-SNAPSHOT</id>
-			<properties>
-				<POST-SNAPSHOT>-POST-SNAPSHOT</POST-SNAPSHOT>
-			</properties>
+			<id>jenkins</id>
+			<build>
+				<plugins>
+					<!-- Always deploy Jenkins builds -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-deploy-plugin</artifactId>
+						<configuration><skip>false</skip></configuration>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
 		<profile>
 			<id>publish</id>
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-enforcer-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>publish-enforce-profiles</id><goals><goal>enforce</goal></goals>
-								<configuration>
-									<rules>
-										<requireActiveProfile>
-											<message>"publish" requires "POST-SNAPSHOT" profile</message>
-											<profiles>POST-SNAPSHOT</profiles>
-										</requireActiveProfile>
-									</rules>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
 						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-war-plugin</artifactId>
 						<configuration>
 							<overlays>
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all</artifactId><classifier>javadoc</classifier> -->
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom</artifactId><classifier>javadoc</classifier> -->
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm</artifactId><classifier>javadoc</classifier> -->
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all</artifactId><classifier>javadoc</classifier> -->
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom</artifactId><classifier>javadoc</classifier> -->
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact</artifactId><classifier>javadoc</classifier> -->
 								<overlay>
 									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId><classifier>javadoc</classifier>
 									<type>jar</type>
@@ -248,6 +241,10 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 									<type>jar</type>
 									<targetPath>contact/view/apidocs</targetPath>
 								</overlay>
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent</artifactId><classifier>javadoc</classifier> -->
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all</artifactId><classifier>javadoc</classifier> -->
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom</artifactId><classifier>javadoc</classifier> -->
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password</artifactId><classifier>javadoc</classifier> -->
 								<overlay>
 									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model</artifactId><classifier>javadoc</classifier>
 									<type>jar</type>
@@ -278,6 +275,9 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 									<type>jar</type>
 									<targetPath>password/view/apidocs</targetPath>
 								</overlay>
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all</artifactId><classifier>javadoc</classifier> -->
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom</artifactId><classifier>javadoc</classifier> -->
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure</artifactId><classifier>javadoc</classifier> -->
 								<overlay>
 									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model</artifactId><classifier>javadoc</classifier>
 									<type>jar</type>
@@ -308,6 +308,9 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 									<type>jar</type>
 									<targetPath>procedure/view/apidocs</targetPath>
 								</overlay>
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all</artifactId><classifier>javadoc</classifier> -->
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom</artifactId><classifier>javadoc</classifier> -->
+								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task</artifactId><classifier>javadoc</classifier> -->
 								<overlay>
 									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model</artifactId><classifier>javadoc</classifier>
 									<type>jar</type>
@@ -318,13 +321,11 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 									<type>jar</type>
 									<targetPath>task/renderer/html/apidocs</targetPath>
 								</overlay>
-								<!-- TODO: No classes in pragmatickm-task-servlet yet:
 								<overlay>
 									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-servlet</artifactId><classifier>javadoc</classifier>
 									<type>jar</type>
 									<targetPath>task/servlet/apidocs</targetPath>
 								</overlay>
-								-->
 								<overlay>
 									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-style</artifactId><classifier>javadoc</classifier>
 									<type>jar</type>
@@ -371,7 +372,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 								<configuration>
 									<target>
 										<sleep seconds="10" />
-										<mkdir dir="${project.build.directory}/warmup-get-url"/>
+										<mkdir dir="${project.build.directory}/warmup-get-url" />
 										<retry retrycount="12" retrydelay="15000">
 											<get
 												retries="1"
@@ -409,6 +410,12 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 			</build>
 			<dependencies>
 				<!-- Dependencies for javadocs -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all</artifactId><classifier>javadoc</classifier> -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom</artifactId><classifier>javadoc</classifier> -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm</artifactId><classifier>javadoc</classifier> -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all</artifactId><classifier>javadoc</classifier> -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom</artifactId><classifier>javadoc</classifier> -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact</artifactId><classifier>javadoc</classifier> -->
 				<dependency>
 					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId><version>2.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
@@ -439,6 +446,10 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent</artifactId><classifier>javadoc</classifier> -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all</artifactId><classifier>javadoc</classifier> -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom</artifactId><classifier>javadoc</classifier> -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password</artifactId><classifier>javadoc</classifier> -->
 				<dependency>
 					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model</artifactId><version>2.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
@@ -469,6 +480,9 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all</artifactId><classifier>javadoc</classifier> -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom</artifactId><classifier>javadoc</classifier> -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure</artifactId><classifier>javadoc</classifier> -->
 				<dependency>
 					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model</artifactId><version>2.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
@@ -499,6 +513,9 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all</artifactId><classifier>javadoc</classifier> -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom</artifactId><classifier>javadoc</classifier> -->
+				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task</artifactId><classifier>javadoc</classifier> -->
 				<dependency>
 					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model</artifactId><version>2.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
@@ -506,6 +523,11 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 				</dependency>
 				<dependency>
 					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-renderer-html</artifactId><version>2.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
+					<scope>provided</scope>
+					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+				</dependency>
+				<dependency>
+					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-servlet</artifactId><version>2.0.0-SNAPSHOT</version><classifier>javadoc</classifier>
 					<scope>provided</scope>
 					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
 				</dependency>

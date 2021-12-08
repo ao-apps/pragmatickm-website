@@ -44,6 +44,10 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 		<!-- Require secure session cookies in production -->
 		<session.cookie.secure>true</session.cookie.secure>
+		<!-- Default publish settings -->
+		<publish-pragmatickm.com-warmup-get-url>https://pragmatickm.com/</publish-pragmatickm.com-warmup-get-url>
+		<publish-pragmatickm.com-warmup-get-url.2>https://pragmatickm.com/sitemap-index.xml</publish-pragmatickm.com-warmup-get-url.2>
+		<publish-pragmatickm.com-warmup-get-url.3>https://pragmatickm.com/?view=news</publish-pragmatickm.com-warmup-get-url.3>
 	</properties>
 
 	<name>pragmatickm.com²</name>

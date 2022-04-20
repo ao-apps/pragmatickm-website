@@ -22,949 +22,949 @@ You should have received a copy of the GNU Lesser General Public License
 along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent</artifactId><version>1.12.0-SNAPSHOT</version>
-		<relativePath>../parent/pom.xml</relativePath>
-	</parent>
+  <parent>
+    <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent</artifactId><version>1.12.0-SNAPSHOT</version>
+    <relativePath>../parent/pom.xml</relativePath>
+  </parent>
 
-	<groupId>com.pragmatickm</groupId><artifactId>website</artifactId><version>1.11.0-SNAPSHOT</version>
-	<packaging>war</packaging>
+  <groupId>com.pragmatickm</groupId><artifactId>website</artifactId><version>1.11.0-SNAPSHOT</version>
+  <packaging>war</packaging>
 
-	<properties>
-		<module.name>com.pragmatickm.website</module.name>
-		<!-- Parallel deployment -->
-		<!-- Unreliable with current hack: <maven.build.timestamp.format>yyyyMMdd.HHmmss</maven.build.timestamp.format> -->
-		<!-- Never stage snapshot, see https://stackoverflow.com/a/39139979 -->
-		<nexus.skipNexusStagingDeployMojo>${build.isSnapshot}</nexus.skipNexusStagingDeployMojo>
-		<!-- SonarQube -->
-		<sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
-		<sonar.organization>ao-apps</sonar.organization>
-		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<!-- Require secure session cookies in production -->
-		<session.cookie.secure>true</session.cookie.secure>
-		<!-- Default publish settings -->
-		<publish-pragmatickm.com-warmup-get-url>https://pragmatickm.com/</publish-pragmatickm.com-warmup-get-url>
-		<publish-pragmatickm.com-warmup-get-url.2>https://pragmatickm.com/sitemap-index.xml</publish-pragmatickm.com-warmup-get-url.2>
-		<publish-pragmatickm.com-warmup-get-url.3>https://pragmatickm.com/?view=news</publish-pragmatickm.com-warmup-get-url.3>
-	</properties>
+  <properties>
+    <module.name>com.pragmatickm.website</module.name>
+    <!-- Parallel deployment -->
+    <!-- Unreliable with current hack: <maven.build.timestamp.format>yyyyMMdd.HHmmss</maven.build.timestamp.format> -->
+    <!-- Never stage snapshot, see https://stackoverflow.com/a/39139979 -->
+    <nexus.skipNexusStagingDeployMojo>${build.isSnapshot}</nexus.skipNexusStagingDeployMojo>
+    <!-- SonarQube -->
+    <sonar.projectKey>${project.groupId}:${project.artifactId}</sonar.projectKey>
+    <sonar.organization>ao-apps</sonar.organization>
+    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+    <!-- Require secure session cookies in production -->
+    <session.cookie.secure>true</session.cookie.secure>
+    <!-- Default publish settings -->
+    <publish-pragmatickm.com-warmup-get-url>https://pragmatickm.com/</publish-pragmatickm.com-warmup-get-url>
+    <publish-pragmatickm.com-warmup-get-url.2>https://pragmatickm.com/sitemap-index.xml</publish-pragmatickm.com-warmup-get-url.2>
+    <publish-pragmatickm.com-warmup-get-url.3>https://pragmatickm.com/?view=news</publish-pragmatickm.com-warmup-get-url.3>
+  </properties>
 
-	<name>pragmatickm.com</name>
-	<url>https://pragmatickm.com/</url>
-	<description>The pragmatickm.com website.</description>
-	<inceptionYear>2017</inceptionYear>
+  <name>pragmatickm.com</name>
+  <url>https://pragmatickm.com/</url>
+  <description>The pragmatickm.com website.</description>
+  <inceptionYear>2017</inceptionYear>
 
-	<licenses>
-		<license>
-			<name>GNU General Lesser Public License (LGPL) version 3.0</name>
-			<url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
+  <licenses>
+    <license>
+      <name>GNU General Lesser Public License (LGPL) version 3.0</name>
+      <url>https://www.gnu.org/licenses/lgpl-3.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
 
-	<organization>
-		<name>AO Industries, Inc.</name>
-		<url>https://aoindustries.com/</url>
-	</organization>
+  <organization>
+    <name>AO Industries, Inc.</name>
+    <url>https://aoindustries.com/</url>
+  </organization>
 
-	<developers>
-		<developer>
-			<name>AO Industries, Inc.</name>
-			<email>support@aoindustries.com</email>
-			<url>https://aoindustries.com/</url>
-			<organization>AO Industries, Inc.</organization>
-			<organizationUrl>https://aoindustries.com/</organizationUrl>
-		</developer>
-	</developers>
+  <developers>
+    <developer>
+      <name>AO Industries, Inc.</name>
+      <email>support@aoindustries.com</email>
+      <url>https://aoindustries.com/</url>
+      <organization>AO Industries, Inc.</organization>
+      <organizationUrl>https://aoindustries.com/</organizationUrl>
+    </developer>
+  </developers>
 
-	<scm>
-		<connection>scm:git:git://github.com/ao-apps/pragmatickm-website.git</connection>
-		<developerConnection>scm:git:git@github.com:ao-apps/pragmatickm-website.git</developerConnection>
-		<url>https://github.com/ao-apps/pragmatickm-website</url>
-		<tag>HEAD</tag>
-	</scm>
+  <scm>
+    <connection>scm:git:git://github.com/ao-apps/pragmatickm-website.git</connection>
+    <developerConnection>scm:git:git@github.com:ao-apps/pragmatickm-website.git</developerConnection>
+    <url>https://github.com/ao-apps/pragmatickm-website</url>
+    <tag>HEAD</tag>
+  </scm>
 
-	<issueManagement>
-		<system>GitHub Issues</system>
-		<url>https://github.com/ao-apps/pragmatickm-website/issues</url>
-	</issueManagement>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/ao-apps/pragmatickm-website/issues</url>
+  </issueManagement>
 
-	<ciManagement>
-		<system>Jenkins</system>
-		<url>https://jenkins.aoindustries.com/job/ao/job/pragmatickm-1.x/job/website/</url>
-	</ciManagement>
-	<!-- Only one allowed in POM:
-	<ciManagement>
-		<system>GitHub Actions</system>
-		<url>https://github.com/ao-apps/pragmatickm-website/actions</url>
-	</ciManagement>
-	-->
+  <ciManagement>
+    <system>Jenkins</system>
+    <url>https://jenkins.aoindustries.com/job/ao/job/pragmatickm-1.x/job/website/</url>
+  </ciManagement>
+  <!-- Only one allowed in POM:
+  <ciManagement>
+    <system>GitHub Actions</system>
+    <url>https://github.com/ao-apps/pragmatickm-website/actions</url>
+  </ciManagement>
+  -->
 
-	<repositories>
-		<!-- Repository required here, too, so can find parent -->
-		<repository>
-			<id>sonatype-nexus-snapshots</id>
-			<name>Sonatype Nexus Snapshots</name>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<checksumPolicy>fail</checksumPolicy>
-			</snapshots>
-		</repository>
-	</repositories>
+  <repositories>
+    <!-- Repository required here, too, so can find parent -->
+    <repository>
+      <id>sonatype-nexus-snapshots</id>
+      <name>Sonatype Nexus Snapshots</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <checksumPolicy>fail</checksumPolicy>
+      </snapshots>
+    </repository>
+  </repositories>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
-				<configuration>
-					<ignoreNonCompile>true</ignoreNonCompile>
-					<usedDependencies>
-						<!-- Direct -->
-						<dependency>com.semanticcms:semanticcms-core-all</dependency><!-- Required for module-info.java -->
-						<dependency>com.semanticcms:semanticcms-news-all</dependency><!-- Required for module-info.java -->
-						<dependency>com.semanticcms:semanticcms-section-all</dependency><!-- Required for module-info.java -->
-					</usedDependencies>
-					<ignoredUnusedDeclaredDependencies>
-						<!-- Books -->
-						<dependency>com.pragmatickm:*-book:jar</dependency>
-					</ignoredUnusedDeclaredDependencies>
-					<ignoredDependencies>
-						<!-- No "module-info.java" in some release builds -->
-						<dependency>com.aoapps:ao-fluent-html-any</dependency>
-					</ignoredDependencies>
-				</configuration>
-			</plugin>
-			<plugin>
-				<!--
-					Workaround "versions:display-plugin-updates" failing when "publish" profile active.
-					See https://github.com/mojohaus/versions-maven-plugin/issues/354
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
+        <configuration>
+          <ignoreNonCompile>true</ignoreNonCompile>
+          <usedDependencies>
+            <!-- Direct -->
+            <dependency>com.semanticcms:semanticcms-core-all</dependency><!-- Required for module-info.java -->
+            <dependency>com.semanticcms:semanticcms-news-all</dependency><!-- Required for module-info.java -->
+            <dependency>com.semanticcms:semanticcms-section-all</dependency><!-- Required for module-info.java -->
+          </usedDependencies>
+          <ignoredUnusedDeclaredDependencies>
+            <!-- Books -->
+            <dependency>com.pragmatickm:*-book:jar</dependency>
+          </ignoredUnusedDeclaredDependencies>
+          <ignoredDependencies>
+            <!-- No "module-info.java" in some release builds -->
+            <dependency>com.aoapps:ao-fluent-html-any</dependency>
+          </ignoredDependencies>
+        </configuration>
+      </plugin>
+      <plugin>
+        <!--
+          Workaround "versions:display-plugin-updates" failing when "publish" profile active.
+          See https://github.com/mojohaus/versions-maven-plugin/issues/354
 
-					A recent optimization moved all configuration of the maven-war-plugin to
-					profileManagement, to avoid the overhead of instantiating this plugin on
-					all projects.  This, however, has exposed us to this bug.
-				-->
-				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-war-plugin</artifactId>
-			</plugin>
-			<!-- Never install snapshot, see https://stackoverflow.com/a/39139979 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-install-plugin</artifactId>
-				<configuration><skip>${build.isSnapshot}</skip></configuration>
-			</plugin>
-			<!-- Do not deploy snapshot (unless "jenkins" profile below), see https://stackoverflow.com/a/39139979 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId><artifactId>maven-deploy-plugin</artifactId>
-				<configuration><skip>${build.isSnapshot}</skip></configuration>
-			</plugin>
-		</plugins>
-	</build>
+          A recent optimization moved all configuration of the maven-war-plugin to
+          profileManagement, to avoid the overhead of instantiating this plugin on
+          all projects.  This, however, has exposed us to this bug.
+        -->
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-war-plugin</artifactId>
+      </plugin>
+      <!-- Never install snapshot, see https://stackoverflow.com/a/39139979 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-install-plugin</artifactId>
+        <configuration><skip>${build.isSnapshot}</skip></configuration>
+      </plugin>
+      <!-- Do not deploy snapshot (unless "jenkins" profile below), see https://stackoverflow.com/a/39139979 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId><artifactId>maven-deploy-plugin</artifactId>
+        <configuration><skip>${build.isSnapshot}</skip></configuration>
+      </plugin>
+    </plugins>
+  </build>
 
-	<profiles>
-		<profile>
-			<!-- Features only enabled during development time -->
-			<id>development</id>
-			<properties>
-				<!-- Allow unsecure session cookies in development -->
-				<session.cookie.secure>false</session.cookie.secure>
-			</properties>
-			<dependencies>
-				<dependency>
-					<groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-all</artifactId><version>1.6.1${POST-SNAPSHOT}</version>
-					<scope>runtime</scope>
-				</dependency>
-				<dependency>
-					<groupId>com.semanticcms</groupId><artifactId>semanticcms-view-all</artifactId><version>1.8.0${POST-SNAPSHOT}</version>
-					<scope>runtime</scope>
-				</dependency>
-				<dependency>
-					<groupId>com.semanticcms</groupId><artifactId>semanticcms-view-tree</artifactId><version>1.6.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-					<scope>runtime</scope>
-				</dependency>
-				<dependency>
-					<groupId>com.semanticcms</groupId><artifactId>semanticcms-view-what-links-here</artifactId><version>1.6.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-					<scope>runtime</scope>
-				</dependency>
-			</dependencies>
-		</profile>
-		<profile>
-			<id>publish</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-war-plugin</artifactId>
-						<configuration>
-							<overlays>
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all</artifactId><classifier>javadoc</classifier> -->
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom</artifactId><classifier>javadoc</classifier> -->
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm</artifactId><classifier>javadoc</classifier> -->
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all</artifactId><classifier>javadoc</classifier> -->
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom</artifactId><classifier>javadoc</classifier> -->
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact</artifactId><classifier>javadoc</classifier> -->
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>contact/model/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-servlet</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>contact/servlet/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-style</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>contact/style/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-taglib</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>contact/taglib/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-view</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>contact/view/apidocs</targetPath>
-								</overlay>
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent</artifactId><classifier>javadoc</classifier> -->
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all</artifactId><classifier>javadoc</classifier> -->
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom</artifactId><classifier>javadoc</classifier> -->
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password</artifactId><classifier>javadoc</classifier> -->
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>password/model/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>password/servlet/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-style</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>password/style/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-taglib</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>password/taglib/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-view</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>password/view/apidocs</targetPath>
-								</overlay>
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all</artifactId><classifier>javadoc</classifier> -->
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom</artifactId><classifier>javadoc</classifier> -->
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure</artifactId><classifier>javadoc</classifier> -->
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>procedure/model/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-servlet</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>procedure/servlet/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-style</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>procedure/style/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>procedure/taglib/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-view</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>procedure/view/apidocs</targetPath>
-								</overlay>
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all</artifactId><classifier>javadoc</classifier> -->
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom</artifactId><classifier>javadoc</classifier> -->
-								<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task</artifactId><classifier>javadoc</classifier> -->
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>task/model/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-servlet</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>task/servlet/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-style</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>task/style/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-taglib</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>task/taglib/apidocs</targetPath>
-								</overlay>
-								<overlay>
-									<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-view</artifactId><classifier>javadoc</classifier>
-									<type>jar</type>
-									<targetPath>task/view/apidocs</targetPath>
-								</overlay>
-							</overlays>
-						</configuration>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.tomcat.maven</groupId><artifactId>tomcat7-maven-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>publish</id><phase>deploy</phase><goals><goal>deploy-only</goal></goals>
-								<configuration>
-									<charset>UTF-8</charset>
-									<server>tomcat7-maven-plugin-pragmatickm.com</server>
-									<!-- Parallel deployment -->
-									<!-- Unreliable with current hack:
-									<path>/ROOT##${maven.build.timestamp}-${project.version}</path>
-									-->
-									<path>/</path>
-									<update>true</update>
-									<url>${tomcat7-maven-plugin-pragmatickm.com}</url>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>warmup-get-url</id><phase>deploy</phase><goals><goal>run</goal></goals>
-								<configuration>
-									<target>
-										<sleep seconds="10" />
-										<mkdir dir="${project.build.directory}/warmup-get-url" />
-										<retry retrycount="12" retrydelay="15000">
-											<get retries="1" src="${publish-pragmatickm.com-warmup-get-url}" dest="${project.build.directory}/warmup-get-url/response" maxtime="120" httpusecaches="false" />
-										</retry>
-										<retry retrycount="12" retrydelay="15000">
-											<get retries="1" src="${publish-pragmatickm.com-warmup-get-url.2}" dest="${project.build.directory}/warmup-get-url/response.2" maxtime="120" httpusecaches="false" />
-										</retry>
-										<retry retrycount="12" retrydelay="15000">
-											<get retries="1" src="${publish-pragmatickm.com-warmup-get-url.3}" dest="${project.build.directory}/warmup-get-url/response.3" maxtime="120" httpusecaches="false" />
-										</retry>
-									</target>
-								</configuration>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-			<dependencies>
-				<!-- Dependencies for javadocs -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all</artifactId><classifier>javadoc</classifier> -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom</artifactId><classifier>javadoc</classifier> -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm</artifactId><classifier>javadoc</classifier> -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all</artifactId><classifier>javadoc</classifier> -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom</artifactId><classifier>javadoc</classifier> -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact</artifactId><classifier>javadoc</classifier> -->
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId><version>1.6.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-servlet</artifactId><version>1.6.1-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-style</artifactId><version>1.5.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-taglib</artifactId><version>1.6.1-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-view</artifactId><version>1.6.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent</artifactId><classifier>javadoc</classifier> -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all</artifactId><classifier>javadoc</classifier> -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom</artifactId><classifier>javadoc</classifier> -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password</artifactId><classifier>javadoc</classifier> -->
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model</artifactId><version>1.5.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet</artifactId><version>1.8.1-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-style</artifactId><version>1.5.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-taglib</artifactId><version>1.8.1-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-view</artifactId><version>1.6.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all</artifactId><classifier>javadoc</classifier> -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom</artifactId><classifier>javadoc</classifier> -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure</artifactId><classifier>javadoc</classifier> -->
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model</artifactId><version>1.5.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-servlet</artifactId><version>1.6.1-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-style</artifactId><version>1.5.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib</artifactId><version>1.7.1-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-view</artifactId><version>1.5.1-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all</artifactId><classifier>javadoc</classifier> -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom</artifactId><classifier>javadoc</classifier> -->
-				<!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task</artifactId><classifier>javadoc</classifier> -->
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model</artifactId><version>1.6.2-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-servlet</artifactId><version>1.7.2-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-style</artifactId><version>1.5.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-taglib</artifactId><version>1.8.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-				<dependency>
-					<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-view</artifactId><version>1.6.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
-					<scope>provided</scope>
-					<exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
-				</dependency>
-			</dependencies>
-		</profile>
-	</profiles>
+  <profiles>
+    <profile>
+      <!-- Features only enabled during development time -->
+      <id>development</id>
+      <properties>
+        <!-- Allow unsecure session cookies in development -->
+        <session.cookie.secure>false</session.cookie.secure>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>com.semanticcms</groupId><artifactId>semanticcms-openfile-all</artifactId><version>1.6.1${POST-SNAPSHOT}</version>
+          <scope>runtime</scope>
+        </dependency>
+        <dependency>
+          <groupId>com.semanticcms</groupId><artifactId>semanticcms-view-all</artifactId><version>1.8.0${POST-SNAPSHOT}</version>
+          <scope>runtime</scope>
+        </dependency>
+        <dependency>
+          <groupId>com.semanticcms</groupId><artifactId>semanticcms-view-tree</artifactId><version>1.6.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+          <scope>runtime</scope>
+        </dependency>
+        <dependency>
+          <groupId>com.semanticcms</groupId><artifactId>semanticcms-view-what-links-here</artifactId><version>1.6.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+          <scope>runtime</scope>
+        </dependency>
+      </dependencies>
+    </profile>
+    <profile>
+      <id>publish</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId><artifactId>maven-war-plugin</artifactId>
+            <configuration>
+              <overlays>
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all</artifactId><classifier>javadoc</classifier> -->
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom</artifactId><classifier>javadoc</classifier> -->
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm</artifactId><classifier>javadoc</classifier> -->
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all</artifactId><classifier>javadoc</classifier> -->
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom</artifactId><classifier>javadoc</classifier> -->
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact</artifactId><classifier>javadoc</classifier> -->
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>contact/model/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-servlet</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>contact/servlet/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-style</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>contact/style/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-taglib</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>contact/taglib/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-view</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>contact/view/apidocs</targetPath>
+                </overlay>
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent</artifactId><classifier>javadoc</classifier> -->
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all</artifactId><classifier>javadoc</classifier> -->
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom</artifactId><classifier>javadoc</classifier> -->
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password</artifactId><classifier>javadoc</classifier> -->
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>password/model/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>password/servlet/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-style</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>password/style/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-taglib</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>password/taglib/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-view</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>password/view/apidocs</targetPath>
+                </overlay>
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all</artifactId><classifier>javadoc</classifier> -->
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom</artifactId><classifier>javadoc</classifier> -->
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure</artifactId><classifier>javadoc</classifier> -->
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>procedure/model/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-servlet</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>procedure/servlet/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-style</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>procedure/style/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>procedure/taglib/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-view</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>procedure/view/apidocs</targetPath>
+                </overlay>
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all</artifactId><classifier>javadoc</classifier> -->
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom</artifactId><classifier>javadoc</classifier> -->
+                <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task</artifactId><classifier>javadoc</classifier> -->
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>task/model/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-servlet</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>task/servlet/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-style</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>task/style/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-taglib</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>task/taglib/apidocs</targetPath>
+                </overlay>
+                <overlay>
+                  <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-view</artifactId><classifier>javadoc</classifier>
+                  <type>jar</type>
+                  <targetPath>task/view/apidocs</targetPath>
+                </overlay>
+              </overlays>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.tomcat.maven</groupId><artifactId>tomcat7-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>publish</id><phase>deploy</phase><goals><goal>deploy-only</goal></goals>
+                <configuration>
+                  <charset>UTF-8</charset>
+                  <server>tomcat7-maven-plugin-pragmatickm.com</server>
+                  <!-- Parallel deployment -->
+                  <!-- Unreliable with current hack:
+                  <path>/ROOT##${maven.build.timestamp}-${project.version}</path>
+                  -->
+                  <path>/</path>
+                  <update>true</update>
+                  <url>${tomcat7-maven-plugin-pragmatickm.com}</url>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>warmup-get-url</id><phase>deploy</phase><goals><goal>run</goal></goals>
+                <configuration>
+                  <target>
+                    <sleep seconds="10" />
+                    <mkdir dir="${project.build.directory}/warmup-get-url" />
+                    <retry retrycount="12" retrydelay="15000">
+                      <get retries="1" src="${publish-pragmatickm.com-warmup-get-url}" dest="${project.build.directory}/warmup-get-url/response" maxtime="120" httpusecaches="false" />
+                    </retry>
+                    <retry retrycount="12" retrydelay="15000">
+                      <get retries="1" src="${publish-pragmatickm.com-warmup-get-url.2}" dest="${project.build.directory}/warmup-get-url/response.2" maxtime="120" httpusecaches="false" />
+                    </retry>
+                    <retry retrycount="12" retrydelay="15000">
+                      <get retries="1" src="${publish-pragmatickm.com-warmup-get-url.3}" dest="${project.build.directory}/warmup-get-url/response.3" maxtime="120" httpusecaches="false" />
+                    </retry>
+                  </target>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <dependencies>
+        <!-- Dependencies for javadocs -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all</artifactId><classifier>javadoc</classifier> -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom</artifactId><classifier>javadoc</classifier> -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm</artifactId><classifier>javadoc</classifier> -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all</artifactId><classifier>javadoc</classifier> -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom</artifactId><classifier>javadoc</classifier> -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact</artifactId><classifier>javadoc</classifier> -->
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId><version>1.6.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-servlet</artifactId><version>1.6.1-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-style</artifactId><version>1.5.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-taglib</artifactId><version>1.6.1-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-view</artifactId><version>1.6.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent</artifactId><classifier>javadoc</classifier> -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all</artifactId><classifier>javadoc</classifier> -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom</artifactId><classifier>javadoc</classifier> -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password</artifactId><classifier>javadoc</classifier> -->
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model</artifactId><version>1.5.1-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet</artifactId><version>1.8.1-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-style</artifactId><version>1.5.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-taglib</artifactId><version>1.8.1-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-view</artifactId><version>1.6.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all</artifactId><classifier>javadoc</classifier> -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom</artifactId><classifier>javadoc</classifier> -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure</artifactId><classifier>javadoc</classifier> -->
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model</artifactId><version>1.5.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-servlet</artifactId><version>1.6.1-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-style</artifactId><version>1.5.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib</artifactId><version>1.7.1-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-view</artifactId><version>1.5.1-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all</artifactId><classifier>javadoc</classifier> -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom</artifactId><classifier>javadoc</classifier> -->
+        <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task</artifactId><classifier>javadoc</classifier> -->
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model</artifactId><version>1.6.2-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-servlet</artifactId><version>1.7.2-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-style</artifactId><version>1.5.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-taglib</artifactId><version>1.8.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+        <dependency>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-view</artifactId><version>1.6.0-POST-SNAPSHOT</version><classifier>javadoc</classifier>
+          <scope>provided</scope>
+          <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
+        </dependency>
+      </dependencies>
+    </profile>
+  </profiles>
 
-	<dependencyManagement>
-		<dependencies>
-			<!-- Direct -->
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all-book</artifactId><version>1.6.3-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom-book</artifactId><version>1.6.3-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-book</artifactId><version>1.17.0-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all-book</artifactId><version>1.5.2-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom-book</artifactId><version>1.5.2-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-book</artifactId><version>1.7.2-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model-book</artifactId><version>1.6.1-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-servlet-book</artifactId><version>1.6.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-style-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-taglib-book</artifactId><version>1.6.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-view-book</artifactId><version>1.6.0-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent-book</artifactId><version>1.12.0-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all-book</artifactId><version>1.6.2-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom-book</artifactId><version>1.6.2-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-book</artifactId><version>1.8.2-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model-book</artifactId><version>1.5.1-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet-book</artifactId><version>1.8.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-style-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-taglib-book</artifactId><version>1.8.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-view-book</artifactId><version>1.6.0-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all-book</artifactId><version>1.6.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom-book</artifactId><version>1.6.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-book</artifactId><version>1.8.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-servlet-book</artifactId><version>1.6.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-style-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib-book</artifactId><version>1.7.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-view-book</artifactId><version>1.5.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all-book</artifactId><version>1.7.3-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom-book</artifactId><version>1.7.3-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-book</artifactId><version>1.9.3-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model-book</artifactId><version>1.6.2-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-servlet-book</artifactId><version>1.7.2-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-style-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-taglib-book</artifactId><version>1.8.0-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-view-book</artifactId><version>1.6.0-POST-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>1.9.3-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId><version>1.7.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId><version>1.7.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<!-- Transitive -->
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId><version>1.8.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-collections</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><version>4.0.2${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId><version>7.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><version>4.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><version>4.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><version>5.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><version>4.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>2.0.2${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><version>2.0.1${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><version>5.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-style</artifactId><version>2.0.1${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><version>7.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-tempfiles</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-tld-parser</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-tlds</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><version>0.5.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.commons</groupId><artifactId>commons-lang3</artifactId><version>3.12.0</version>
-			</dependency>
-			<dependency>
-				<groupId>javax.el</groupId><artifactId>javax.el-api</artifactId><version>3.0.0</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><version>3.1.0</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><version>2.3.3</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>joda-time</groupId><artifactId>joda-time</artifactId><version>2.10.14</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.5.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>1.14.1${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.18.3-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.15.2${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-model</artifactId><version>1.2.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-servlet</artifactId><version>1.6.1${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-taglib</artifactId><version>1.6.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-model</artifactId><version>1.6.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-servlet</artifactId><version>1.11.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-taglib</artifactId><version>1.9.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-tag-reference</artifactId><version>1.8.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
-			<!-- Runtime Direct -->
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId><version>1.2.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><version>3.0.2${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-google-analytics</artifactId><version>1.3.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.12.1${POST-SNAPSHOT}</version>
-			</dependency>
-			<!-- Runtime Transitive -->
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId><version>3.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.5.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>d3</artifactId><version>7.4.4</version>
-			</dependency>
-			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>dagre</artifactId><version>0.8.5</version>
-			</dependency>
-			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>dagre-d3</artifactId><version>0.6.4</version>
-			</dependency>
-			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>graphlib</artifactId><version>2.1.8</version>
-			</dependency>
-			<dependency>
-				<groupId>joda-time</groupId><artifactId>joda-time-jsptags</artifactId><version>1.1.1</version>
-			</dependency>
-			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId><version>3.6.0</version>
-			</dependency>
-			<dependency>
-				<groupId>org.webjars.npm</groupId><artifactId>lodash</artifactId><version>4.17.21</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-breadcrumblist-json-ld</artifactId><version>1.4.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-canonical</artifactId><version>1.3.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-sitemap</artifactId><version>1.14.2${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-style</artifactId><version>1.5.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>1.6.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-view-content</artifactId><version>1.9.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-model</artifactId><version>1.5.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-servlet</artifactId><version>1.10.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><version>1.10.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-rss</artifactId><version>1.6.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-style</artifactId><version>1.4.1${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-view</artifactId><version>1.5.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId><version>1.7.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-style</artifactId><version>1.8.0${POST-SNAPSHOT}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>1.9.1${POST-SNAPSHOT}</version>
-			</dependency>
-			<!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId> -->
-			<!-- BOM -->
-			<dependency>
-				<groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom</artifactId><version>7.0.1${POST-SNAPSHOT}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+  <dependencyManagement>
+    <dependencies>
+      <!-- Direct -->
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all-book</artifactId><version>1.6.3-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom-book</artifactId><version>1.6.3-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-book</artifactId><version>1.17.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all-book</artifactId><version>1.5.2-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom-book</artifactId><version>1.5.2-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-book</artifactId><version>1.7.2-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model-book</artifactId><version>1.6.1-POST-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-servlet-book</artifactId><version>1.6.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-style-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-taglib-book</artifactId><version>1.6.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-view-book</artifactId><version>1.6.0-POST-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent-book</artifactId><version>1.12.0-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all-book</artifactId><version>1.6.2-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom-book</artifactId><version>1.6.2-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-book</artifactId><version>1.8.2-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model-book</artifactId><version>1.5.1-POST-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet-book</artifactId><version>1.8.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-style-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-taglib-book</artifactId><version>1.8.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-view-book</artifactId><version>1.6.0-POST-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all-book</artifactId><version>1.6.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom-book</artifactId><version>1.6.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-book</artifactId><version>1.8.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-servlet-book</artifactId><version>1.6.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-style-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib-book</artifactId><version>1.7.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-view-book</artifactId><version>1.5.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all-book</artifactId><version>1.7.3-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom-book</artifactId><version>1.7.3-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-book</artifactId><version>1.9.3-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model-book</artifactId><version>1.6.2-POST-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-servlet-book</artifactId><version>1.7.2-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-style-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-taglib-book</artifactId><version>1.8.0-POST-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-view-book</artifactId><version>1.6.0-POST-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId><version>1.9.3-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId><version>1.7.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId><version>1.7.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <!-- Transitive -->
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-badges</artifactId><version>1.8.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-collections</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-concurrent</artifactId><version>4.0.2${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-encoding</artifactId><version>7.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-encoding-servlet</artifactId><version>4.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-encoding-taglib</artifactId><version>4.0.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-any</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-servlet</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-hodgepodge</artifactId><version>5.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-io-buffer</artifactId><version>4.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-lang</artifactId><version>5.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-net-types</artifactId><version>2.0.2${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-last-modified</artifactId><version>2.0.1${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-subrequest</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-util</artifactId><version>5.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-style</artifactId><version>2.0.1${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-taglib</artifactId><version>7.2.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-tempfiles</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-tempfiles-servlet</artifactId><version>3.0.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-tld-parser</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-tlds</artifactId><version>2.0.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-registry</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-servlet</artifactId><version>0.5.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId><artifactId>commons-lang3</artifactId><version>3.12.0</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.el</groupId><artifactId>javax.el-api</artifactId><version>3.0.0</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.servlet</groupId><artifactId>javax.servlet-api</artifactId><version>3.1.0</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.servlet.jsp</groupId><artifactId>javax.servlet.jsp-api</artifactId><version>2.3.3</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>joda-time</groupId><artifactId>joda-time</artifactId><version>2.10.14</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-changelog-taglib</artifactId><version>1.5.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-model</artifactId><version>1.14.1${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-servlet</artifactId><version>1.18.3-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-taglib</artifactId><version>1.15.2${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-model</artifactId><version>1.2.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-servlet</artifactId><version>1.6.1${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-taglib</artifactId><version>1.6.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-section-model</artifactId><version>1.6.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-section-servlet</artifactId><version>1.11.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-section-taglib</artifactId><version>1.9.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-tag-reference</artifactId><version>1.8.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-spec</artifactId> -->
+      <!-- Runtime Direct -->
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId><version>1.2.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId><version>3.0.2${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-google-analytics</artifactId><version>1.3.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId><version>1.12.1${POST-SNAPSHOT}</version>
+      </dependency>
+      <!-- Runtime Transitive -->
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-fluent-html-util</artifactId><version>0.7.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-javadoc-offline</artifactId><version>3.1.0-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-renderer</artifactId><version>0.5.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>ao-web-resources-taglib</artifactId><version>0.4.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId><artifactId>d3</artifactId><version>7.4.4</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId><artifactId>dagre</artifactId><version>0.8.5</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId><artifactId>dagre-d3</artifactId><version>0.6.4</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId><artifactId>graphlib</artifactId><version>2.1.8</version>
+      </dependency>
+      <dependency>
+        <groupId>joda-time</groupId><artifactId>joda-time-jsptags</artifactId><version>1.1.1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId><artifactId>jquery</artifactId><version>3.6.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.webjars.npm</groupId><artifactId>lodash</artifactId><version>4.17.21</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-breadcrumblist-json-ld</artifactId><version>1.4.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-canonical</artifactId><version>1.3.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-sitemap</artifactId><version>1.14.2${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-style</artifactId><version>1.5.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-theme-base</artifactId><version>1.6.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-view-content</artifactId><version>1.9.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-model</artifactId><version>1.5.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-servlet</artifactId><version>1.10.1-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-file-taglib</artifactId><version>1.10.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-rss</artifactId><version>1.6.2-SNAPSHOT<!-- ${POST-SNAPSHOT} --></version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-style</artifactId><version>1.4.1${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-view</artifactId><version>1.5.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-pagegraph</artifactId><version>1.7.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-section-style</artifactId><version>1.8.0${POST-SNAPSHOT}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation-style</artifactId><version>1.9.1${POST-SNAPSHOT}</version>
+      </dependency>
+      <!-- javaee-web-api-bom: <groupId>org.apache.taglibs</groupId><artifactId>taglibs-standard-impl</artifactId> -->
+      <!-- BOM -->
+      <dependency>
+        <groupId>com.aoapps</groupId><artifactId>javaee-web-api-bom</artifactId><version>7.0.1${POST-SNAPSHOT}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
-	<dependencies>
-		<!-- Direct -->
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-servlet-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-style-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-taglib-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-view-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-style-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-taglib-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-view-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-servlet-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-style-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-view-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-servlet-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-style-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-taglib-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-view-book</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId>
-		</dependency>
-		<!-- Runtime Direct -->
-		<dependency>
-			<!-- Required for UTF-8 static resources -->
-			<groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-google-analytics</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-	</dependencies>
+  <dependencies>
+    <!-- Direct -->
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-servlet-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-style-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-taglib-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-view-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-servlet-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-style-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-taglib-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-view-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-servlet-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-style-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-view-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-servlet-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-style-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-taglib-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-view-book</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-core-all</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-news-all</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-section-all</artifactId>
+    </dependency>
+    <!-- Runtime Direct -->
+    <dependency>
+      <!-- Required for UTF-8 static resources -->
+      <groupId>com.aoapps</groupId><artifactId>ao-mime-mappings</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.aoapps</groupId><artifactId>ao-servlet-filter</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-google-analytics</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.semanticcms</groupId><artifactId>semanticcms-theme-documentation</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
 </project>

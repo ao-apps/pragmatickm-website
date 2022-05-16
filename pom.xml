@@ -552,7 +552,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom-book</artifactId><version>1.6.1-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-book</artifactId><version>1.8.1-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-book</artifactId><version>1.8.1-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>

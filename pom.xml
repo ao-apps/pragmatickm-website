@@ -486,7 +486,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
     <dependencies>
       <!-- Direct -->
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all-book</artifactId><version>1.6.3-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all-book</artifactId><version>1.6.3-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom-book</artifactId><version>1.6.3-SNAPSHOT</version>

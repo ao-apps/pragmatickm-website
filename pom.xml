@@ -528,7 +528,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom-book</artifactId><version>1.6.2-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-book</artifactId><version>1.8.2-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-book</artifactId><version>1.8.2-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model-book</artifactId><version>1.5.1-POST-SNAPSHOT</version>

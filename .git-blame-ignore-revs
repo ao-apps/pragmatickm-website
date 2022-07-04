@@ -9,4 +9,8 @@
 # $ git config blame.ignoreRevsFile .git-blame-ignore-revs
 
 # Significant manual code formatting clean-up…
+f6bcddbafcd9cecdc444fa4f2d11f7a755f49a65
 e954a7aa26e3e82bed2319fdf9264e673402b8bc
+
+# Performed manual checkstyle clean-up
+80ec3f322a23ca27dc24df71c3cd563ab298035a

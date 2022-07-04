@@ -50,7 +50,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
     <publish-pragmatickm.com-warmup-get-url.3>https://pragmatickm.com/?view=news</publish-pragmatickm.com-warmup-get-url.3>
   </properties>
 
-  <name>pragmatickm.com²</name>
+  <name>pragmatickm.com</name>
   <url>https://pragmatickm.com/</url>
   <description>The pragmatickm.com website.</description>
   <inceptionYear>2017</inceptionYear>

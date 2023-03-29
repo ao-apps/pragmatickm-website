@@ -42,6 +42,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
     <!-- Require secure session cookies in production -->
     <session.cookie.secure>true</session.cookie.secure>
     <!-- Default publish settings -->
+    <publish-pragmatickm.com-ssh-path>/usr/bin/ssh</publish-pragmatickm.com-ssh-path>
     <publish-pragmatickm.com-warmup-get-url>https://pragmatickm.com/</publish-pragmatickm.com-warmup-get-url>
     <publish-pragmatickm.com-warmup-get-url.2>https://pragmatickm.com/sitemap-index.xml</publish-pragmatickm.com-warmup-get-url.2>
     <publish-pragmatickm.com-warmup-get-url.3>https://pragmatickm.com/?view=news</publish-pragmatickm.com-warmup-get-url.3>
@@ -349,6 +350,20 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
           <plugin>
             <groupId>org.apache.maven.plugins</groupId><artifactId>maven-antrun-plugin</artifactId>
             <executions>
+              <execution>
+                <id>delete-tomcat-work</id><phase>deploy</phase><goals><goal>run</goal></goals>
+                <configuration>
+                  <target>
+                    <sleep seconds="1" />
+                    <exec executable="${publish-pragmatickm.com-ssh-path}" failonerror="true">
+                      <arg value="-oControlPath=none" />
+                      <arg value="-T" />
+                      <arg value="${publish-pragmatickm.com-tomcat-username}@${publish-pragmatickm.com-tomcat-hostname}"/>
+                      <arg value="find '${publish-pragmatickm.com-tomcat-work}' '(' -name '*.java' -or -name '*.class' ')' -delete" />
+                    </exec>
+                  </target>
+                </configuration>
+              </execution>
               <execution>
                 <id>warmup-sleep</id><phase>deploy</phase><goals><goal>run</goal></goals>
                 <configuration>

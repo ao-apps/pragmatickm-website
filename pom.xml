@@ -660,7 +660,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-view-book</artifactId><version>1.6.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent-book</artifactId><version>1.17.1-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent-book</artifactId><version>1.17.1-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all-book</artifactId><version>1.6.2-POST-SNAPSHOT</version>

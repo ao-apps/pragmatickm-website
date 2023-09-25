@@ -29,12 +29,12 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
     <relativePath>../parent/pom.xml</relativePath>
   </parent>
 
-  <groupId>com.pragmatickm</groupId><artifactId>website</artifactId><version>1.12.0</version>
+  <groupId>com.pragmatickm</groupId><artifactId>website</artifactId><version>1.12.0-POST-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <properties>
     <!-- Must be set to ${git.commit.time} for snapshots or ISO 8601 timestamp for releases. -->
-    <project.build.outputTimestamp>2023-09-25T08:15:07Z</project.build.outputTimestamp>
+    <project.build.outputTimestamp>${git.commit.time}</project.build.outputTimestamp>
     <module.name>com.pragmatickm.website</module.name>
 
     <!-- The Google Analytics 4 (GA4) Measurement ID for this site. -->
@@ -85,7 +85,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
     <connection>scm:git:git://github.com/ao-apps/pragmatickm-website.git</connection>
     <developerConnection>scm:git:git@github.com:ao-apps/pragmatickm-website.git</developerConnection>
     <url>https://github.com/ao-apps/pragmatickm-website</url>
-    <tag>website-1.12.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <issueManagement>

@@ -19,7 +19,7 @@ The [pragmatickm.com](https://pragmatickm.com/) website.
 
 ## Project Links
 * [Project Home](https://pragmatickm.com/)
-* [Maven Central Repository](https://central.sonatype.com/artifact/com.pragmatickm/website)
+* [Central Repository](https://central.sonatype.com/artifact/com.pragmatickm/website)
 * [GitHub](https://github.com/ao-apps/pragmatickm-website)
 
 ## Contact Us

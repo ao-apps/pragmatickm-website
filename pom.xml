@@ -436,6 +436,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
                   </target>
                 </configuration>
               </execution>
+              <!-- Publishing version javaee still:
               <execution>
                 <id>delete-tomcat-work</id><phase>${publish.delete-tomcat-work.phase}</phase><goals><goal>run</goal></goals>
                 <configuration>
@@ -475,6 +476,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
                   </target>
                 </configuration>
               </execution>
+              -->
             </executions>
           </plugin>
         </plugins>

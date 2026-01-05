@@ -350,7 +350,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
               </webResources>
             </configuration>
           </plugin>
-          <!-- Publishing version javaee still:
+          <!-- Publishing version 2.x (Jakarta EE):
           <plugin>
             <groupId>org.apache.tomcat.maven</groupId><artifactId>tomcat7-maven-plugin</artifactId>
             <executions>
@@ -466,7 +466,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
                   </target>
                 </configuration>
               </execution>
-              <!-- Publishing version javaee still:
+              <!-- Publishing version 2.x (Jakarta EE):
               <execution>
                 <id>delete-tomcat-work</id><phase>${publish.delete-tomcat-work.phase}</phase><goals><goal>run</goal></goals>
                 <configuration>

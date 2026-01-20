@@ -45,7 +45,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
     <!-- Require secure session cookies in production -->
     <session.cookie.secure>true</session.cookie.secure>
     <!-- Default publish settings -->
-    <publish.tomcat7-maven-plugin.parallel.deployment.version>${user.name}-${current.datetime}</publish.tomcat7-maven-plugin.parallel.deployment.version>
+    <publish.tomcat7-maven-plugin.parallel.deployment.version>${current.datetime}-${user.name}</publish.tomcat7-maven-plugin.parallel.deployment.version>
     <publish-pragmatickm.com-GetParallelDeploymentVersion-url>https://pragmatickm.com/ao-servlet-util/tomcat/GetParallelDeploymentVersion</publish-pragmatickm.com-GetParallelDeploymentVersion-url>
     <publish-pragmatickm.com-GetWarFileFingerprint-url>https://pragmatickm.com/ao-servlet-util/tomcat/GetWarFileFingerprint</publish-pragmatickm.com-GetWarFileFingerprint-url>
     <publish-pragmatickm.com-warmup-get-url>https://pragmatickm.com/</publish-pragmatickm.com-warmup-get-url>
@@ -204,8 +204,8 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
     <profile>
       <id>jenkins</id>
       <properties>
-        <!-- Use Jenkins build number -->
-        <publish.tomcat7-maven-plugin.parallel.deployment.version>build-${jenkins.buildNumber}</publish.tomcat7-maven-plugin.parallel.deployment.version>
+        <!-- Include Jenkins build number -->
+        <publish.tomcat7-maven-plugin.parallel.deployment.version>${current.datetime}-${user.name}-build-${jenkins.buildNumber}</publish.tomcat7-maven-plugin.parallel.deployment.version>
       </properties>
     </profile>
     <profile>

@@ -47,6 +47,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
     <!-- Default publish settings -->
     <publish.tomcat7-maven-plugin.parallel.deployment.version>${user.name}-${current.datetime}</publish.tomcat7-maven-plugin.parallel.deployment.version>
     <publish-pragmatickm.com-GetParallelDeploymentVersion-url>https://pragmatickm.com/ao-servlet-util/tomcat/GetParallelDeploymentVersion</publish-pragmatickm.com-GetParallelDeploymentVersion-url>
+    <publish-pragmatickm.com-GetWarFileFingerprint-url>https://pragmatickm.com/ao-servlet-util/tomcat/GetWarFileFingerprint</publish-pragmatickm.com-GetWarFileFingerprint-url>
     <publish-pragmatickm.com-warmup-get-url>https://pragmatickm.com/</publish-pragmatickm.com-warmup-get-url>
     <publish-pragmatickm.com-warmup-get-url.2>https://pragmatickm.com/sitemap-index.xml</publish-pragmatickm.com-warmup-get-url.2>
     <publish-pragmatickm.com-warmup-get-url.3>https://pragmatickm.com/?view=news</publish-pragmatickm.com-warmup-get-url.3>
@@ -459,6 +460,31 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
                         <fail
                           message="Parallel deployment version mismatch.  Expected ${publish.tomcat7-maven-plugin.parallel.deployment.version}, got ${parallel-deployment-version}."
                           unless="parallel-deployment-version.matches"
+                        />
+                      </sequential>
+                    </retry>
+                  </target>
+                </configuration>
+              </execution>
+              <execution>
+                <id>verify-war-file-fingerprint</id><phase>deploy</phase><goals><goal>run</goal></goals>
+                <configuration>
+                  <target>
+                    <!- - Compute the expected MD5 fingerprint - ->
+                    <checksum file="${project.build.directory}/${project.build.finalName}.war" property="expected-war-file-fingerprint"/>
+                    <!- - Download and verify matches - ->
+                    <mkdir dir="${project.build.directory}/verify-war-file-fingerprint" />
+                    <retry retrycount="12" retrydelay="15000">
+                      <sequential>
+                        <local name="war-file-fingerprint" />
+                        <get retries="1" src="${publish-pragmatickm.com-GetWarFileFingerprint-url}" dest="${project.build.directory}/verify-war-file-fingerprint/GetWarFileFingerprint" maxtime="120" httpusecaches="false" />
+                        <loadfile property="war-file-fingerprint" srcFile="${project.build.directory}/verify-war-file-fingerprint/GetWarFileFingerprint" />
+                        <condition property="war-file-fingerprint.matches">
+                          <equals arg1="${war-file-fingerprint}" arg2="${expected-war-file-fingerprint}" />
+                        </condition>
+                        <fail
+                          message="WAR file MD5 fingerprint mismatch.  Expected ${expected-war-file-fingerprint}, got ${war-file-fingerprint}."
+                          unless="war-file-fingerprint.matches"
                         />
                       </sequential>
                     </retry>

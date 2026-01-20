@@ -51,6 +51,9 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
     <publish-pragmatickm.com-warmup-get-url>https://pragmatickm.com/</publish-pragmatickm.com-warmup-get-url>
     <publish-pragmatickm.com-warmup-get-url.2>https://pragmatickm.com/sitemap-index.xml</publish-pragmatickm.com-warmup-get-url.2>
     <publish-pragmatickm.com-warmup-get-url.3>https://pragmatickm.com/?view=news</publish-pragmatickm.com-warmup-get-url.3>
+
+    <!-- Plugins -->
+    <org.codehaus.gmaven.groovy-maven-plugin.version>2.1.1</org.codehaus.gmaven.groovy-maven-plugin.version>
   </properties>
 
   <name>pragmatickm.com</name>
@@ -212,6 +215,22 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
       <id>publish</id>
       <build>
         <plugins>
+          <plugin>
+            <groupId>org.codehaus.gmaven</groupId><artifactId>groovy-maven-plugin</artifactId><version>${org.codehaus.gmaven.groovy-maven-plugin.version}</version>
+            <executions>
+              <!-- See https://stackoverflow.com/a/11239913 -->
+              <execution>
+                <id>get-tomcatManager-auth-from-settings</id><phase>validate</phase><goals><goal>execute</goal></goals>
+                <configuration>
+                  <source>
+                    def server = settings.servers.find{ it.id.equals('tomcat7-maven-plugin-pragmatickm.com') }
+                    project.properties.tomcatManagerUsername = server.username
+                    project.properties.tomcatManagerPassword = server.password
+                  </source>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
           <plugin>
             <groupId>org.apache.maven.plugins</groupId><artifactId>maven-dependency-plugin</artifactId>
             <executions>
@@ -448,6 +467,8 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
                         <local name="parallel-deployment-version" />
                         <get
                           retries="1"
+                          username="${tomcatManagerUsername}"
+                          password="${tomcatManagerPassword}"
                           src="${publish-pragmatickm.com-GetParallelDeploymentVersion-url}"
                           dest="${project.build.directory}/verify-parallel-deployment-version/GetParallelDeploymentVersion"
                           maxtime="120"
@@ -479,6 +500,8 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
                         <local name="war-file-fingerprint" />
                         <get
                           retries="1"
+                          username="${tomcatManagerUsername}"
+                          password="${tomcatManagerPassword}"
                           src="${publish-pragmatickm.com-GetWarFileFingerprint-url}"
                           dest="${project.build.directory}/verify-war-file-fingerprint/GetWarFileFingerprint"
                           maxtime="120"

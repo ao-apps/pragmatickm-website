@@ -45,8 +45,8 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
     <!-- Require secure session cookies in production -->
     <session.cookie.secure>true</session.cookie.secure>
     <!-- Default publish settings -->
-    <publish.tomcat7-maven-plugin.1.server>publish.tomcat7-maven-plugin.parallel.deployment.version</publish.tomcat7-maven-plugin.1.server>
-    <publish.tomcat7-maven-plugin.1.url>${publish.tomcat7-maven-plugin.parallel.deployment.version}</publish.tomcat7-maven-plugin.1.url>
+    <publish.tomcat7-maven-plugin.1.server>tomcat7-maven-plugin-pragmatickm.com</publish.tomcat7-maven-plugin.1.server>
+    <publish.tomcat7-maven-plugin.1.url>${tomcat7-maven-plugin-pragmatickm.com}</publish.tomcat7-maven-plugin.1.url>
     <publish.tomcat7-maven-plugin.1.GetWarFileFingerprint-url>https://pragmatickm.com/ao-servlet-util/tomcat/GetWarFileFingerprint</publish.tomcat7-maven-plugin.1.GetWarFileFingerprint-url>
     <publish.tomcat7-maven-plugin.1.warmup-get-url.1>https://pragmatickm.com/</publish.tomcat7-maven-plugin.1.warmup-get-url.1>
     <publish.tomcat7-maven-plugin.1.warmup-get-url.2>https://pragmatickm.com/sitemap-index.xml</publish.tomcat7-maven-plugin.1.warmup-get-url.2>

@@ -29,7 +29,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
     <relativePath>../parent/pom.xml</relativePath>
   </parent>
 
-  <groupId>com.pragmatickm</groupId><artifactId>website</artifactId><version>1.12.1-SNAPSHOT</version>
+  <groupId>com.pragmatickm</groupId><artifactId>website</artifactId><version>1.19.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
   <properties>
@@ -404,7 +404,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
         <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom</artifactId><classifier>javadoc</classifier> -->
         <!-- No apidocs: <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact</artifactId><classifier>javadoc</classifier> -->
         <dependency>
-          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId><version>1.7.0-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model</artifactId><version>1.19.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -419,7 +419,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
         <dependency>
-          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-taglib</artifactId><version>1.7.0-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-taglib</artifactId><version>1.19.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -448,7 +448,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
         <dependency>
-          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-taglib</artifactId><version>1.9.0-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-taglib</artifactId><version>1.19.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -476,7 +476,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
         <dependency>
-          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib</artifactId><version>1.8.0-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib</artifactId><version>1.19.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -504,7 +504,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
         <dependency>
-          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-taglib</artifactId><version>1.9.0-SNAPSHOT</version><classifier>javadoc</classifier>
+          <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-taglib</artifactId><version>1.19.0-SNAPSHOT</version><classifier>javadoc</classifier>
           <scope>provided</scope>
           <exclusions><exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion></exclusions>
         </dependency>
@@ -554,25 +554,25 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
     <dependencies>
       <!-- Direct -->
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all-book</artifactId><version>1.7.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-all-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom-book</artifactId><version>1.7.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-bom-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-book</artifactId><version>1.18.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all-book</artifactId><version>1.6.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-all-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom-book</artifactId><version>1.6.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-bom-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-book</artifactId><version>1.8.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model-book</artifactId><version>1.7.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-model-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-servlet-book</artifactId><version>1.6.1-POST-SNAPSHOT</version>
@@ -581,7 +581,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-style-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-taglib-book</artifactId><version>1.7.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-taglib-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-contact-view-book</artifactId><version>1.6.0-POST-SNAPSHOT</version>
@@ -590,13 +590,13 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-parent-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all-book</artifactId><version>1.7.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-all-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom-book</artifactId><version>1.7.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-bom-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-book</artifactId><version>1.9.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-model-book</artifactId><version>1.5.1-POST-SNAPSHOT</version>
@@ -608,19 +608,19 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-style-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-taglib-book</artifactId><version>1.9.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-taglib-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-password-view-book</artifactId><version>1.6.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all-book</artifactId><version>1.7.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-all-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom-book</artifactId><version>1.7.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-bom-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-book</artifactId><version>1.9.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-model-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
@@ -632,19 +632,19 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-style-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib-book</artifactId><version>1.8.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-taglib-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-procedure-view-book</artifactId><version>1.5.1-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all-book</artifactId><version>1.8.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-all-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom-book</artifactId><version>1.8.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-bom-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-book</artifactId><version>1.10.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-model-book</artifactId><version>1.6.2-POST-SNAPSHOT</version>
@@ -656,7 +656,7 @@ along with pragmatickm.  If not, see <https://www.gnu.org/licenses/>.
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-style-book</artifactId><version>1.5.0-POST-SNAPSHOT</version>
       </dependency>
       <dependency>
-        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-taglib-book</artifactId><version>1.9.0-SNAPSHOT</version>
+        <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-taglib-book</artifactId><version>1.19.0-SNAPSHOT</version>
       </dependency>
       <dependency>
         <groupId>com.pragmatickm</groupId><artifactId>pragmatickm-task-view-book</artifactId><version>1.6.0-POST-SNAPSHOT</version>
